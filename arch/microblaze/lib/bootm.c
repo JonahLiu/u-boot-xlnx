@@ -46,6 +46,7 @@ int do_bootm_linux(int flag, int argc, char * const argv[],
 	/* did generic code already find a device tree? */
 	if (images->ft_len)
 		of_flat_tree = images->ft_addr;
+	fdt_fixup_ethernet(of_flat_tree);
 #endif
 
 	thekernel = (void (*)(char *, ulong, ulong))images->ep;
